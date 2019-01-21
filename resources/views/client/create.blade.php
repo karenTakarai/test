@@ -11,8 +11,6 @@
 
 <h1>Create a Nerd</h1>
 
-<!-- if there are creation errors, they will show here -->
-
 {{ Form::open(array('url' => 'clients')) }}
 
     <div class="form-group">

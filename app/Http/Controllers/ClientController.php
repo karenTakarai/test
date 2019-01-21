@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
-use Validator, Input, Redirect; 
-
-use Illuminate\Support\Facades\View;
-
+use Validator, Input, Redirect, View; 
 
 class ClientController extends Controller
 {
@@ -60,9 +57,6 @@ class ClientController extends Controller
             $client->occupation = Input::get('occupation');
             $client->gender = Input::get('gender');
             $client->save();
-
-            // redirect
-            //Session::flash('message', 'Successfully created Client!');
             return Redirect::to('clients');
         }
         
@@ -76,10 +70,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-            // get the nerd
         $client = Client::find($id);
 
-        // show the view and pass the nerd to it
         return View::make('client.show')->with('client', $client);
     }
 
@@ -91,10 +83,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        // get the nerd
         $client = Client::find($id);
-
-        // show the edit form and pass the nerd
         return View::make('client.edit')->with('client', $client);
     }
 
@@ -127,8 +116,6 @@ class ClientController extends Controller
             $client->gender = Input::get('gender');
             $client->save();
 
-            // redirect
-            //Session::flash('message', 'Successfully created Client!');
             return Redirect::to('clients');
         }
     }
@@ -141,11 +128,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        // delete
         $client = Client::find($id);
         $client->delete();
 
-        // redirect
         return Redirect::to('clients');
     }
 }
